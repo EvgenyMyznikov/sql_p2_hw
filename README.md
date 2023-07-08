@@ -25,8 +25,8 @@ where f.`length` > (select avg(f2.`length`) from film f2);
 ### Задание 3
 Получите информацию, за какой месяц была получена наибольшая сумма платежей, и добавьте информацию по количеству аренд за этот месяц.
 
-select date_format(p.payment_date, "%c"), sum(p.amount), count(p.rental_id)
+select date_format(p.payment_date, "%m-%Y"), sum(p.amount), count(p.rental_id)
 from payment p
-where date_format(p.payment_date, "%c") = 7 
-group by date_format(p.payment_date, "%c");
+where date_format(p.payment_date, "%m") = 7
+group by date_format(p.payment_date, "%m-%Y");
 
